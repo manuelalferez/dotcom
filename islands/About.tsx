@@ -1,7 +1,7 @@
 /** @jsx h */
 import { h } from "preact";
 import { tw } from "@twind";
-import { ResumeIcon, IconLink } from "../components/Icons.tsx";
+import { ResumeIcon, IconLink } from "@/components/Icons.tsx";
 
 export default function About() {
   const linkClass = tw`text-blue-600 hover:underline transition duration-75 ease-in-out`;
