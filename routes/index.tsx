@@ -5,13 +5,20 @@ import About from "@/islands/About.tsx";
 import { SocialLinks } from "@/components/SocialLinks.tsx";
 import Projects from "@/components/Projects.tsx";
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { Project } from "../types/global.tsx";
+import { Post, Project } from "@/types.d.tsx";
+import { walk } from "walk";
+import { Posts } from "@/components/Posts.tsx";
+import { loadPost } from "@/utils/loadPost.ts";
+
+const POSTS = new Map<string, Post>();
+const POSTS_DIRECTORY = "posts/";
 
 export const handler: Handlers<Project | null> = {
   async GET(_, ctx) {
     const jsonResponse = await fetch(
       "https://gh-pinned-repos.egoist.sh/?username=manuelalferez"
     );
+    await loadContent(POSTS_DIRECTORY);
     if (jsonResponse.status === 404) {
       return ctx.render(null);
     }
@@ -27,6 +34,20 @@ export default function Home({ data, ...props }: PageProps<Project[] | null>) {
       <SocialLinks class={tw`mt(5 md:7)`} />
       <hr class={tw`w-5/6 mx-auto my-10`} />
       <Projects data={data} {...props} />
+      <hr class={tw`w-5/6 mx-auto my-10`} />
+      <Posts posts={POSTS} />
     </div>
   );
+}
+
+async function loadContent(postsDirectory: string) {
+  for await (const entry of walk(postsDirectory)) {
+    if (entry.isFile && entry.path.endsWith(".md")) {
+      const [key, post]: [string, Post] = await loadPost(
+        postsDirectory,
+        entry.path
+      );
+      POSTS.set(key, post);
+    }
+  }
 }
