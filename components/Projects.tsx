@@ -3,7 +3,7 @@ import { h } from "preact";
 import { tw } from "twind";
 import { ForkIcon, RepoIcon, StarIcon } from "./Icons.tsx";
 import { PageProps } from "$fresh/server.ts";
-import { Project } from "../types/global.tsx";
+import { Project } from "@/types.d.tsx";
 
 export default function Projects({ data }: PageProps<Project[] | null>) {
   if (!data) {
