@@ -10,3 +10,11 @@ export interface Project {
   stars: string | number;
   forks: string | number;
 }
+
+/** Represents a Post in the Blog. */
+export interface Post {
+  pathname: string;
+  markdown: string;
+  title: string;
+  publishDate: Date;
+}
