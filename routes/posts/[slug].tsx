@@ -34,6 +34,7 @@ export default function PostPage({ data, ...props }: PageProps<Post | null>) {
     pre: apply`bg-gray-100 rounded-md p-4 overflow-auto`,
     code: apply`text-sm bg-gray-100 rounded-md p-1`,
     p: apply`text-justify`,
+    iframe: apply`w(full md:5/6) h(52 md:72) mx-auto`,
   });
 
   if (!data) {
