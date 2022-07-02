@@ -1,7 +1,7 @@
 /** @jsx h */
 import { h } from "preact";
 import { tw } from "@twind";
-import About from "@/islands/About.tsx";
+import About from "@/components/About.tsx";
 import { SocialLinks } from "@/components/SocialLinks.tsx";
 import Projects from "@/components/Projects.tsx";
 import { Handlers, PageProps } from "$fresh/server.ts";
