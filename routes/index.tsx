@@ -38,7 +38,7 @@ export default function Home({ data, ...props }: PageProps<Project[] | null>) {
           name="description"
           content="Software Developer. GDG organizer. Trekking. Open Source. Chess player"
         />
-        <link rel="shortcut icon" href="./favicon.png" type="image/png" />
+        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
       </Head>
       <About />
       <SocialLinks class={tw`mt(5 md:7)`} />
