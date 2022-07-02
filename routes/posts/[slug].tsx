@@ -6,6 +6,7 @@ import { tw } from "@/utils/twind.ts";
 import { css, apply } from "twind/css";
 import { loadPost } from "@/utils/loadPost.ts";
 import Markdown from "markdown-to-jsx";
+import Footer from "../../components/Footer.tsx";
 
 const POSTS_DIRECTORY = "posts/";
 
@@ -39,16 +40,19 @@ export default function PostPage({ data, ...props }: PageProps<Post | null>) {
   }
 
   return (
-    <div
-      class={tw`${tw(
-        markdownStyles
-      )} md:mx-auto md:max-w-screen-sm px(4 sm:6 md:8) my(16 sm:20)`}
-    >
-      <h1>{data.title}</h1>
-      <p class={tw`text-gray-500 pt-2 pb-10`}>
-        {data.publishDate.toISOString().split("T")[0]}
-      </p>
-      <Markdown className={tw`space-y-7 py-2`}>{data.markdown}</Markdown>
+    <div class={tw`my(16 sm:20)`}>
+      <div
+        class={tw`${tw(
+          markdownStyles
+        )} md:mx-auto md:max-w-screen-sm px(4 sm:6 md:8)`}
+      >
+        <h1>{data.title}</h1>
+        <p class={tw`text-gray-500 pt-2 pb-10`}>
+          {data.publishDate.toISOString().split("T")[0]}
+        </p>
+        <Markdown className={tw`space-y-7 py-2`}>{data.markdown}</Markdown>
+      </div>
+      <Footer />
     </div>
   );
 }
