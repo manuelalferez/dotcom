@@ -9,6 +9,7 @@ import { Post, Project } from "@/types.d.tsx";
 import { walk } from "walk";
 import { Posts } from "@/components/Posts.tsx";
 import { loadPost } from "@/utils/loadPost.ts";
+import Footer from "../components/Footer.tsx";
 
 const POSTS = new Map<string, Post>();
 const POSTS_DIRECTORY = "posts/";
@@ -36,6 +37,7 @@ export default function Home({ data, ...props }: PageProps<Project[] | null>) {
       <Projects data={data} {...props} />
       <hr class={tw`w-5/6 mx-auto my-10`} />
       <Posts posts={POSTS} />
+      <Footer />
     </div>
   );
 }

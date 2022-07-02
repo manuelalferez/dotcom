@@ -89,6 +89,13 @@ export function ForkIcon() {
     </svg>
   );
 }
+export function LoveIcon() {
+  return (
+    <svg class={tw`h-4 inline`} fill="#c94042" viewBox="0 0 14 14">
+      <path d="m9 .5-3 2-3-2L0 3v3.5l6 5 6-5V3L9 .5z" />
+    </svg>
+  );
+}
 
 export function ResumeIcon() {
   return (
