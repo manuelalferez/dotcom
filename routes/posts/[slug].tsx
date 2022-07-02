@@ -54,7 +54,7 @@ export default function PostPage({ data, ...props }: PageProps<Post | null>) {
             name="description"
             content="Software Developer. GDG organizer. Trekking. Open Source. Chess player"
           />
-          <link rel="shortcut icon" href="./favicon.png" type="image/png" />
+          <link rel="shortcut icon" href="/favicon.png" type="image/png" />
         </Head>
         <h1>{data.title}</h1>
         <p class={tw`text-gray-500 pt-2 pb-10`}>
