@@ -6,6 +6,8 @@ import { tw } from "@/utils/twind.ts";
 import { css, apply } from "twind/css";
 import { loadPost } from "@/utils/loadPost.ts";
 import Markdown from "markdown-to-jsx";
+import Footer from "../../components/Footer.tsx";
+import { Head } from "$fresh/runtime.ts";
 
 const POSTS_DIRECTORY = "posts/";
 
@@ -32,6 +34,7 @@ export default function PostPage({ data, ...props }: PageProps<Post | null>) {
     pre: apply`bg-gray-100 rounded-md p-4 overflow-auto`,
     code: apply`text-sm bg-gray-100 rounded-md p-1`,
     p: apply`text-justify`,
+    iframe: apply`w(full md:5/6) h(52 md:72) mx-auto`,
   });
 
   if (!data) {
@@ -39,16 +42,27 @@ export default function PostPage({ data, ...props }: PageProps<Post | null>) {
   }
 
   return (
-    <div
-      class={tw`${tw(
-        markdownStyles
-      )} md:mx-auto md:max-w-screen-sm px(4 sm:6 md:8) my(16 sm:20)`}
-    >
-      <h1>{data.title}</h1>
-      <p class={tw`text-gray-500 pt-2 pb-10`}>
-        {data.publishDate.toISOString().split("T")[0]}
-      </p>
-      <Markdown className={tw`space-y-7 py-2`}>{data.markdown}</Markdown>
+    <div class={tw`my(16 sm:20)`}>
+      <div
+        class={tw`${tw(
+          markdownStyles
+        )} md:mx-auto md:max-w-screen-sm px(4 sm:6 md:8)`}
+      >
+        <Head>
+          <title>{data.title}</title>
+          <meta
+            name="description"
+            content="Software Developer. GDG organizer. Trekking. Open Source. Chess player"
+          />
+          <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+        </Head>
+        <h1>{data.title}</h1>
+        <p class={tw`text-gray-500 pt-2 pb-10`}>
+          {data.publishDate.toISOString().split("T")[0]}
+        </p>
+        <Markdown className={tw`space-y-7 py-2`}>{data.markdown}</Markdown>
+      </div>
+      <Footer />
     </div>
   );
 }
