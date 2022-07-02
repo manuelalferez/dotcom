@@ -7,6 +7,7 @@ import { css, apply } from "twind/css";
 import { loadPost } from "@/utils/loadPost.ts";
 import Markdown from "markdown-to-jsx";
 import Footer from "../../components/Footer.tsx";
+import { Head } from "$fresh/runtime.ts";
 
 const POSTS_DIRECTORY = "posts/";
 
@@ -46,6 +47,14 @@ export default function PostPage({ data, ...props }: PageProps<Post | null>) {
           markdownStyles
         )} md:mx-auto md:max-w-screen-sm px(4 sm:6 md:8)`}
       >
+        <Head>
+          <title>{data.title}</title>
+          <meta
+            name="description"
+            content="Software Developer. GDG organizer. Trekking. Open Source. Chess player"
+          />
+          <link rel="shortcut icon" href="./favicon.png" type="image/png" />
+        </Head>
         <h1>{data.title}</h1>
         <p class={tw`text-gray-500 pt-2 pb-10`}>
           {data.publishDate.toISOString().split("T")[0]}
