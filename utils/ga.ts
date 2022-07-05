@@ -5,6 +5,17 @@ import { createReporter } from "https://deno.land/x/g_a@0.1.2/mod.ts";
 
 const ga = createReporter({ id: Deno.env.get("GA_TRACKING") });
 
+export function isBot(req: Request) {
+  const accept = req.headers.get("accept");
+  const referer = req.headers.get("referer");
+  const userAgent = req.headers.get("user-agent");
+  return (
+    referer == null &&
+    (userAgent == null || !userAgent.startsWith("Mozilla/")) &&
+    (accept == null || accept === "*/*")
+  );
+}
+
 export function withLog(
   handler: (
     request: Request,
@@ -24,7 +35,9 @@ export function withLog(
         status: 500,
       });
     } finally {
-      ga(req, con, res, start, err);
+      if (!isBot(req)) {
+        ga(req, con, res, start, err);
+      }
     }
     return res;
   };
