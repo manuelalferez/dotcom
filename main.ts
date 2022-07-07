@@ -33,4 +33,8 @@ const ctx = await ServerContext.fromManifest(manifest, { render });
 
 const innerHandler = withLog(ctx.handler());
 
-serve(innerHandler);
+if (Deno.env.get("ENVIRONMENT") != "development") {
+  serve(innerHandler);
+} else {
+  serve(ctx.handler());
+}

@@ -56,7 +56,7 @@ export default function PostPage({ data, ...props }: PageProps<Post | null>) {
           />
           <link rel="shortcut icon" href="/favicon.png" type="image/png" />
         </Head>
-        <h1>{data.title}</h1>
+        <span class={tw`text(3xl md:4xl) font-bold`}>{data.title}</span>
         <p class={tw`text-gray-500 pt-2 pb-10`}>
           {data.publishDate.toISOString().split("T")[0]}
         </p>
