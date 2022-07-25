@@ -23,7 +23,7 @@ export default function About() {
             </h1>
           </div>
           <IconLink
-            href="https://github.com/manuelalferez/resume/blob/master/resume.pdf"
+            href="https://github.com/manuelalferez/resume"
             title="Resume"
             icon={ResumeIcon}
           />
