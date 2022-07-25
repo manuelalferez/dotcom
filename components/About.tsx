@@ -31,8 +31,12 @@ export default function About() {
       </div>
 
       <p class={tw`mt(4 md:10) leading-7 text(gray-900 lg)`}>
-        I'm doing stuff with JavaScript, sharing code on GitHub and
-        participating as a member of{" "}
+        I'm a software developer and an open source enthusiast. I work as a
+        Junior Solutions Engineer at{" "}
+        <a href="https://www.hubtype.com/" target="_blank" class={linkClass}>
+          Hubtype
+        </a>{" "}
+        and participate as a member of{" "}
         <a
           href="https://www.meetup.com/es-ES/GDG-Jaen/"
           target="_blank"
@@ -40,8 +44,7 @@ export default function About() {
         >
           Google Developer Groups.
         </a>{" "}
-        Ask me about Open Source, hiking or just for a chat. Do you want to work
-        together?
+        Ask me about Open Source, hiking, or just for a chat.
       </p>
     </div>
   );
