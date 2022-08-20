@@ -9,7 +9,7 @@ export default function About() {
     <div>
       <div class={tw`flex flex(col sm:row)`}>
         <img
-          src="https://avatars.githubusercontent.com/u/38152841?v=4"
+          src="/me.webp"
           alt="manuel alferez"
           class={tw`w(20 md:28) h(20 md:28) rounded-full`}
         />
