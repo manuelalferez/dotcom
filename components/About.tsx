@@ -9,9 +9,9 @@ export default function About() {
     <div>
       <div class={tw`flex flex(col sm:row)`}>
         <img
-          src="https://avatars.githubusercontent.com/u/38152841?v=4"
+          src="/me.webp"
           alt="manuel alferez"
-          class={tw`w(20 md:28) h(20 md:28) rounded-full`}
+          class={tw`w-28 h-28 rounded-full`}
         />
         <div class={tw`flex items-center gap-6`}>
           <div class={tw`flex flex-col justify-center py(2 md:0) sm:pl-4`}>
