@@ -11,7 +11,7 @@ export default function About() {
         <img
           src="/me.webp"
           alt="manuel alferez"
-          class={tw`w(20 md:28) h(20 md:28) rounded-full`}
+          class={tw`w-28 h-28 rounded-full`}
         />
         <div class={tw`flex items-center gap-6`}>
           <div class={tw`flex flex-col justify-center py(2 md:0) sm:pl-4`}>
