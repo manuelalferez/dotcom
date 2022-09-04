@@ -4,17 +4,11 @@
 /// <reference lib="deno.ns" />
 /// <reference lib="deno.unstable" />
 
-import {
-  InnerRenderFunction,
-  RenderContext,
-  ServerContext,
-} from "$fresh/server.ts";
+import { InnerRenderFunction, RenderContext, start } from "$fresh/server.ts";
 import manifest from "./fresh.gen.ts";
 
 import { config, setup } from "@twind";
 import { virtualSheet } from "twind/sheets";
-import { withLog } from "./utils/ga.ts";
-import { serve } from "https://deno.land/std@0.128.0/http/server.ts";
 
 const sheet = virtualSheet();
 sheet.reset();
@@ -29,12 +23,4 @@ function render(ctx: RenderContext, render: InnerRenderFunction) {
   ctx.state.set("twind", newSnapshot);
 }
 
-const ctx = await ServerContext.fromManifest(manifest, { render });
-
-const innerHandler = withLog(ctx.handler());
-
-if (Deno.env.get("ENVIRONMENT") != "development") {
-  serve(innerHandler);
-} else {
-  serve(ctx.handler());
-}
+await start(manifest, { render });
