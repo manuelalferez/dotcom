@@ -32,7 +32,7 @@ export default function About() {
 
       <p class={tw`mt(4 md:10) leading-7 text(gray-900 lg)`}>
         I'm a software developer and an open source enthusiast. I work as a
-        Junior Solutions Engineer at{" "}
+        Solutions Engineer at{" "}
         <a href="https://www.hubtype.com/" target="_blank" class={linkClass}>
           Hubtype
         </a>{" "}
