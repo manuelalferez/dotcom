@@ -1,4 +1,4 @@
-![](https://ik.imagekit.io/manuelalferez/dotcom/markdown_s3nN02xbL.png?ik-sdk-version=javascript-1.4.3&updatedAt=1656800325601)
+![https://ik.imagekit.io/manuelalferez/dotcom/markdown_s3nN02xbL.png?ik-sdk-version=javascript-1.4.3&updatedAt=1656800325601](https://ik.imagekit.io/manuelalferez/dotcom/Group%201_7vcVrvFJh.png?updatedAt=1697715382334)
 
 # Manuel's Blog
 ## Usage
