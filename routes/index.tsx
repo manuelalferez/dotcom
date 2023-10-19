@@ -11,14 +11,22 @@ import { loadPost } from "@/utils/loadPost.ts";
 import Footer from "../components/Footer.tsx";
 import { Head } from "$fresh/runtime.ts";
 import Header from "../components/Header.tsx";
+import Projects from "../components/Projects.tsx";
 
 const POSTS = new Map<string, Post>();
 const POSTS_DIRECTORY = "posts/";
 
 export const handler: Handlers<Project | null> = {
   async GET(_, ctx) {
+    const jsonResponse = await fetch(
+      "https://gh-pinned-repos.egoist.dev/?username=manuelalferez"
+    );
     await loadContent(POSTS_DIRECTORY);
-    return ctx.render();
+    if (jsonResponse.status === 404) {
+      return ctx.render(null);
+    }
+    const projects: Project = await jsonResponse.json();
+    return ctx.render(projects);
   },
 };
 
@@ -38,6 +46,8 @@ export default function Home({ data, ...props }: PageProps<Project[] | null>) {
 
         <About />
         <SocialLinks class={tw`mt(5 md:7)`} />
+        <hr class={tw`w-5/6 mx-auto my-10`} />
+        <Projects data={data} {...props} />
         <hr class={tw`w-5/6 mx-auto my-10`} />
         <Posts posts={POSTS} />
         <Footer />
