@@ -27,7 +27,7 @@ export function Posts({ posts }: IndexProps) {
 
 function PostCard({ post }: { post: Post }) {
   return (
-    <div class={tw`mt-4 first:mt-0 border-1 rounded-md mb-1 p-2`}>
+    <div class={tw`mt-4 first:mt-0 border-1 rounded-md mb-1 p-4`}>
       <h3 class={tw`text-lg font-bold`}>
         <a
           class={tw`hover:text-blue-600 hover:underline transition duration-75 ease-in-out`}
