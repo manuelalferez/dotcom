@@ -17,7 +17,7 @@ export function Posts({ posts }: IndexProps) {
   );
 
   return (
-    <div class={tw`md:mx-auto w(md:2/3)`}>
+    <div>
       {postIndex.map((post) => (
         <PostCard post={post} key={post.pathname} />
       ))}
@@ -27,7 +27,7 @@ export function Posts({ posts }: IndexProps) {
 
 function PostCard({ post }: { post: Post }) {
   return (
-    <div class={tw`pt-12 first:pt-0`}>
+    <div class={tw`mt-4 first:mt-0 border-1 rounded-md mb-1 p-2`}>
       <h3 class={tw`text-lg font-bold`}>
         <a
           class={tw`hover:text-blue-600 hover:underline transition duration-75 ease-in-out`}
