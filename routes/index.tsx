@@ -43,7 +43,11 @@ export default function Home({ data, ...props }: PageProps<Project[] | null>) {
           />
           <link rel="shortcut icon" href="/favicon.png" type="image/png" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="true"
+          />
           <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600;800&display=swap"
             rel="stylesheet"
