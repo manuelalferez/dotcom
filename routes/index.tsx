@@ -10,6 +10,7 @@ import { Posts } from "@/components/Posts.tsx";
 import { loadPost } from "@/utils/loadPost.ts";
 import Footer from "../components/Footer.tsx";
 import { Head } from "$fresh/runtime.ts";
+import Header from "../components/Header.tsx";
 
 const POSTS = new Map<string, Post>();
 const POSTS_DIRECTORY = "posts/";
@@ -23,20 +24,24 @@ export const handler: Handlers<Project | null> = {
 
 export default function Home({ data, ...props }: PageProps<Project[] | null>) {
   return (
-    <div class={tw`mx-auto max-w-screen-sm px(4 sm:6 md:8) my(12 sm:20)`}>
-      <Head>
-        <title>Manuel Alférez</title>
-        <meta
-          name="description"
-          content="Software Developer. GDG organizer. Trekking. Open Source. Chess player"
-        />
-        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
-      </Head>
-      <About />
-      <SocialLinks class={tw`mt(5 md:7)`} />
-      <hr class={tw`w-5/6 mx-auto my-10`} />
-      <Posts posts={POSTS} />
-      <Footer />
+    <div>
+      <Header />
+      <div class={tw`mx-auto max-w-screen-sm px(4 sm:6 md:8) my(12 sm:20)`}>
+        <Head>
+          <title>Manuel Alférez</title>
+          <meta
+            name="description"
+            content="Software Developer. GDG organizer. Trekking. Open Source. Chess player"
+          />
+          <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+        </Head>
+
+        <About />
+        <SocialLinks class={tw`mt(5 md:7)`} />
+        <hr class={tw`w-5/6 mx-auto my-10`} />
+        <Posts posts={POSTS} />
+        <Footer />
+      </div>
     </div>
   );
 }
