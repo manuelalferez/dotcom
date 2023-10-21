@@ -44,8 +44,15 @@ export default function About() {
         >
           Google Developer Groups.
         </a>{" "}
-        Ask me about Open Source, hiking, or just for a chat. Check out my
-        fantastic{" "}
+        Ask me about Open Source, hiking, or just for a{" "}
+        <a
+          href="https://calendar.app.google/nymwiZXk6MyzP3uu6"
+          target="_blank"
+          class={linkClass}
+        >
+          chat.
+        </a>{" "}
+        Check out my fantastic{" "}
         <a
           href="https://flowinance.vercel.app/"
           target="_blank"
