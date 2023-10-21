@@ -44,7 +44,16 @@ export default function About() {
         >
           Google Developer Groups.
         </a>{" "}
-        Ask me about Open Source, hiking, or just for a chat.
+        Ask me about Open Source, hiking, or just for a chat. Check out my
+        fantastic{" "}
+        <a
+          href="https://flowinance.vercel.app/"
+          target="_blank"
+          class={linkClass}
+        >
+          Flowinance
+        </a>{" "}
+        project. I'm very proud of it.
       </p>
     </div>
   );
